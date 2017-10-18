@@ -1,6 +1,9 @@
 # Inventory api
 This api expose database inventory. HW for web programming class
 
+### Base url
+* http://inventory-api.openode.io/
+
 ### Tech
 Different npm package used to build this api
 
@@ -9,9 +12,15 @@ Different npm package used to build this api
 * [Body-parser] npm package that allows you to parse url etc
 
 ### Routes
-- GET: /api/product
-- GET: /api/product
+- GET: /api/product/id
+- GET: /api/products
 - GET: /api/product/id/field/value
+  ##### fields
+  - name
+  - description
+  - price
+  - number
+  - path
 - POST: /api/product
 - GET: /api/static/pictures/name.ext
 
