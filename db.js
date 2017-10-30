@@ -1,23 +1,27 @@
 const mysql = require('mysql');
 
-// const connection = mysql.createConnection({
-//     host: 'us-cdbr-azure-northcentral-b.cloudapp.net',
-//     user: 'bc4f8d934d644e',
-//     password: '126d12a4',
-//     database: 'jkoki'
-
-// });
-
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'shadowx',
-    password: 'password@#13',
-    database: 'nfc_ecommerce'
+    host: 'us-cdbr-azure-southcentral-f.cloudapp.net',
+    user: 'ba2bfc3e654d26',
+    password: '64d48eec',
+    database: 'nfcecommercedb'
 
 });
 
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'shadowx',
+//     password: 'password@#13',
+//     database: 'nfc_ecommerce'
 
-connection.connect();
+// });
+
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+}
+);
 
 var db = {
     'createProduct' : function (product) {
