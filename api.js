@@ -16,7 +16,7 @@ router.use(function(req, res, next){
 //api routes
 router.get('/products', function(req, res){
     var products = db.getProducts();
-
+    
     products.then(function(data){
         var response = {
             status : "OK",
@@ -39,7 +39,7 @@ router.get('/products', function(req, res){
 });
 
 router.get('/product/:id', function(req, res){
-    var product = db.getProduct(req.params.id);
+    var product = db.getProductById(req.params.id);
 
     product.then(function(data){
         var response = {
@@ -111,5 +111,31 @@ router.get('/product/:id/:field/:value', function(req,res){
     })
 
 });
+
+router.get('/product/name/:name', function(req,res){
+    var product = db.getProductByName(req.params.name);
+    
+    product.then(function(data){
+        console.log(data)
+        var response = {
+            status: "OK",
+            data: data,
+            message: "Your product has been retrieved "
+        };
+        res.send(response);
+        return;
+    }, function(err){
+        var response = {
+            status: "ERROR",
+            data: err,
+            message: "Your product has not been retrieved successfully"
+        };
+        res.send(response);
+        return;
+    });
+
+})
+
+
 
 module.exports = router;
