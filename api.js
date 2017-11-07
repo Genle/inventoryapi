@@ -112,7 +112,7 @@ router.get('/product/:id/:field/:value', function(req,res){
 
 });
 
-router.get('/product/test/:name', function(req,res){
+router.get('/product/name/:name', function(req,res){
     var product = db.getProductByName(req.params.name);
     
     product.then(function(data){
